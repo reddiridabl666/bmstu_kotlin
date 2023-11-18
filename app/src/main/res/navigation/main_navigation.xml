@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/albumsFragment">
+
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="com.bmstu_android.recycler_view.AlbumsFragment"
+        android:label="fragment_albums"
+        tools:layout="@layout/fragment_albums" >
+        <action
+            android:id="@+id/action_albumsFragment_to_trackListFragment"
+            app:destination="@id/trackListFragment" />
+        <argument
+            android:name="albums"
+            app:argType="string"
+            android:defaultValue="albums.json" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackListFragment"
+        android:name="com.bmstu_android.recycler_view.TrackListFragment"
+        android:label="fragment_track_list"
+        tools:layout="@layout/fragment_track_list" >
+        <action
+            android:id="@+id/action_trackListFragment_to_albumsFragment"
+            app:destination="@id/albumsFragment" />
+    </fragment>
+</navigation>
